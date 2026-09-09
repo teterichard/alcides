@@ -33,5 +33,3 @@ if rank == 0:
     print(f"Pontos totais: {total_points}")
     print(f"Pontos dentro: {total_inside}")
     print(f"Tempo: {(fim - inicio) * 1000:.2f} ms")
-
-MPI.Finalize()
