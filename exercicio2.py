@@ -12,7 +12,7 @@ base = N // size
 resto = N % size
 local_n = base + (1 if rank < resto else 0)
 
-random.seed((rank + 1) * 1234567)
+random.seed(rank)
 dentro = 0
 inicio = time.time()
 for _ in range(local_n):
