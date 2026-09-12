@@ -21,12 +21,13 @@ for _ in range(local_n):
     if x*x + y*y <= 1:
         dentro += 1
 
-fim = time.time()
+# fim = time.time()
 total_inside = comm.reduce(dentro, op=MPI.SUM, root=0)
 total_points = comm.reduce(local_n, op=MPI.SUM, root=0)
 if rank == 0:
     pi = 4.0 * total_inside / total_points
+    fim = time.time()
     print(f"PI aproximado: {pi}")
-    print(f"Pontos totais: {total_points}")
-    print(f"Pontos dentro: {total_inside}")
     print(f"Tempo: {(fim - inicio) * 1000:.2f} ms")
+
+MPI.Finalize()
